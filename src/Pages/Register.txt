@@ -1,0 +1,207 @@
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
+
+const Register = () => {
+  const [inpval, setINP] = useState({
+    name: "",
+    email: "",
+    age: "",
+    mobile: "",
+    work: "",
+    add: "",
+    desc: "",
+  });
+
+  const setdata = (e) => {
+    console.log(e.target.value);
+    const { name, value } = e.target;
+    setINP((preval) => {
+      return {
+        ...preval,
+        [name]: value,
+      };
+    });
+
+    const addinpdata = async (e) => {
+      e.preventDefault();
+
+      const { name, email, age, mobile, work, add, desc } = inpval;
+
+      const res = await fetch("/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          age,
+          mobile,
+          work,
+          add,
+          desc,
+        }),
+      });
+      const data = await res.json();
+      console.log(data);
+
+      if (res.status === 404 || !data) {
+        alert("error");
+        console.log("error");
+      } else {
+        alert("data added");
+        console.log("data added");
+      }
+    };
+  };
+
+  return (
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div className="logo">
+            <img src={"./Godrej.png"} height="100"></img>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                {/* <a class="nav-link active" aria-current="page" href="#">Home</a> */}
+                <Link to="/" className="btn">
+                  Home
+                </Link>
+              </li>
+              <li class="nav-item">
+                {/* <a class="nav-link" href="#">ABOUT</a> */}
+                <Link to="/about" className="btn">
+                  About
+                </Link>
+              </li>
+              <li class="nav-item">
+                {/* <a class="nav-link" href="#">EMP DETAILS</a> */}
+                <Link to="/emp" className="btn">
+                  Emp Details
+                </Link>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              ></input>
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div className="container form">
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">
+              Name
+            </label>
+            <input
+              type="text"
+              value={inpval.name}
+              name="name"
+              onChange={setdata}
+              class="form-control"
+              id="inputEmail4"
+            ></input>
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">
+              Email
+            </label>
+            <input
+              type="email"
+              value={inpval.email}
+              name="email"
+              onChange={setdata}
+              class="form-control"
+              id="inputPassword4"
+            ></input>
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">
+              Age
+            </label>
+            <input
+              type="number"
+              value={inpval.age}
+              name="age"
+              onChange={setdata}
+              class="form-control"
+              id="inputEmail4"
+            ></input>
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">
+              Mobile
+            </label>
+            <input
+              type="number"
+              value={inpval.mobile}
+              name="mobile"
+              onChange={setdata}
+              class="form-control"
+              id="inputPassword4"
+            ></input>
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">
+              Work
+            </label>
+            <input
+              type="text"
+              value={inpval.work}
+              name="work"
+              onChange={setdata}
+              class="form-control"
+              id="inputEmail4"
+            ></input>
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">
+              Address
+            </label>
+            <input
+              type="text"
+              value={inpval.add}
+              name="add"
+              onChange={setdata}
+              class="form-control"
+              id="inputPassword4"
+            ></input>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">
+              Description
+            </label>
+            <textarea
+              class="form-control"
+              value={inpval.desc}
+              name="desc"
+              onChange={setdata}
+              id="exampleFormControlTextarea1"
+              rows="4"
+            ></textarea>
+          </div>
+          <div className="btn1">
+            <button type="submit" onClick={addinpdata} class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </header>
+  );
+};
+
+export default Register;

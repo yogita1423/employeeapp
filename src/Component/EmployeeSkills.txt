@@ -1,0 +1,38 @@
+import React, { useState } from "react";
+import Select from "react-select";
+const EmployeeSkills = () => {
+  var Skills = [
+    {
+      value: 1,
+      label: "Java",
+    },
+    {
+      value: 2,
+      label: "Python",
+    },
+    {
+      value: 3,
+      label: "React Js",
+    },
+  ];
+  const [EmployeeSkills, setEmployeeSkills] = useState([]);
+  const handleChange = (_e) => {
+    setEmployeeSkills(Array.isArray(_e) ? _e.map((x) => x.label) : []);
+  };
+
+  return (
+    <div>
+      EmployeeSkills
+      <Select
+        options={Skills}
+        isMulti
+        onChange={handleChange}
+        showCheckbox
+        value={EmployeeSkills.Skills}
+      ></Select>
+      <p>{EmployeeSkills}</p>
+    </div>
+  );
+};
+
+export default EmployeeSkills;
