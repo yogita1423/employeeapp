@@ -67,7 +67,7 @@ const Emp = () => {
           <h1>EMPLOYEES DETAILS</h1>
         </div>
         <div className="add-btn">
-          <Link to="/register" class="btn btn-primary">
+          <Link to="/Register" class="btn btn-primary">
             ADD DATA &nbsp;
             <i class="fa-solid fa-plus"></i>
           </Link>
