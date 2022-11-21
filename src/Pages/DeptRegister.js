@@ -13,6 +13,7 @@ import Navbar2 from "../Component/Navbar2";
 const DeptRegister = () => {
   const [inpval, setINP] = useState({
     EmployeeID: "",
+    EmployeeName: "",
     Department: "",
     EndDate: "",
     DateOfJoining: "",
@@ -62,6 +63,7 @@ const DeptRegister = () => {
     e.preventDefault();
     const {
       EmployeeID,
+      EmployeeName,
       EndDate,
       Department,
       DateOfJoining,
@@ -88,6 +90,7 @@ const DeptRegister = () => {
       },
       body: JSON.stringify({
         EmployeeID,
+        EmployeeName,
         Department,
         EndDate,
         DateOfJoining,
@@ -215,6 +218,23 @@ const DeptRegister = () => {
                     })}
                   </select>
                 </div> */}
+
+                <div className="col-lg-6">
+                  <label for="ExampleInputName" class=" form=label">
+                    EmployeeName
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="ExampleInputName"
+                    placeholder="Please enter EmployeeName"
+                    value={inpval.EmployeeName}
+                    onChange={setdata}
+                    name="EmployeeName"
+                    required
+                  />
+                </div>
+
                 <div className="col-lg-6">
                   <label for="ExampleInputDepartment" class=" form=label">
                     Department

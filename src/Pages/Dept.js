@@ -79,6 +79,7 @@ const Dept = () => {
               <tr className="deptTable">
                 <th scope="col">Sr No</th>
                 <th scope="col">EmployeeID</th>
+                <th scope="col">EmployeeName</th>
                 <th scope="col">Department</th>
                 <th scope="col">DateOfJoining</th>
                 <th scope="col">EndDate</th>
@@ -104,6 +105,7 @@ const Dept = () => {
                         })}
                         }
                       </td> */}
+                      <td>{element.EmployeeName}</td>
                       <td>{element.Department}</td>
                       <td>{element.DateOfJoining}</td>
                       <td>{element.EndDate}</td>
