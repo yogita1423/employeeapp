@@ -64,7 +64,9 @@ const Emp = () => {
       <Navbar2 />
       <section>
         <div className="top">
-          <h1>EMPLOYEES DETAILS</h1>
+          <h1>
+            EMPLOYEES DETAILS <i class="fa-solid fa-user-tie"></i>
+          </h1>
         </div>
         <div className="add-btn">
           <Link to="/Register" class="btn btn-primary">

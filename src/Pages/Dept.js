@@ -58,7 +58,9 @@ const Dept = () => {
       <Navbar2 />
       <section>
         <div className="top">
-          <h1>DEPARTMENT DETAILS</h1>
+          <h1>
+            DEPARTMENT DETAILS <i class="fa-solid fa-building-user"></i>
+          </h1>
         </div>
         <div className="add-btn">
           <Link to="/DeptRegister" class="btn btn-primary">

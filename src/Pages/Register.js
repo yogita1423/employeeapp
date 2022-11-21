@@ -103,7 +103,7 @@ const Register = () => {
           <form className="Auth-form1">
             <div className="Auth-form-content1">
               <h1 className="title1">
-                New Employee User &nbsp;&nbsp;
+                New Employee User &nbsp;
                 <i class="fa-sharp fa-solid fa-person-circle-plus"></i>{" "}
               </h1>
 

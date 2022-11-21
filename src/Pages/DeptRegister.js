@@ -159,7 +159,7 @@ const DeptRegister = () => {
           <form className="Auth-form1">
             <div className="Auth-form-content1">
               <h1 className="title1">
-                New Department User &nbsp;&nbsp;
+                New Department User &nbsp;
                 <i class="fa-solid fa-building-user"></i>
               </h1>
               <br></br>
