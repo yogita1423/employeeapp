@@ -1,9 +1,13 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import Footer from "../Component/Footer";
+import Navbar from "../Component/Navbar";
+import Navbar2 from "../Component/Navbar2";
 
 const Details = () => {
   return (
-    <header>
+    <>
+      <Navbar2 />
       <h2>Welcome Yogita Pandey</h2>
       <section>
         <div className="container">
@@ -49,7 +53,10 @@ const Details = () => {
           </div>
         </div>
       </section>
-    </header>
+      <br />
+
+      <Footer />
+    </>
   );
 };
 

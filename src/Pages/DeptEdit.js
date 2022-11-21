@@ -5,12 +5,12 @@ import Footer from "../Component/Footer";
 import Multiselect from "multiselect-react-dropdown";
 
 // import Demo from "../Component/Demo";
-import { postdepturl, geturl } from "./Config";
+import { postdepturl, geturl, putdepturl } from "./Config";
 import Navbar2 from "../Component/Navbar2";
 //import EmployeeSkills from "../Component/EmployeeSkills";
 //import Emp from "./Emp";
 
-const DeptRegister = () => {
+const DeptEdit = () => {
   const [inpval, setINP] = useState({
     EmployeeID: "",
     Department: "",
@@ -58,7 +58,7 @@ const DeptRegister = () => {
     getdata();
   }, []);
 
-  const addinpdeptdata = async (e) => {
+  const Updatedeptdata = async (e) => {
     e.preventDefault();
     const {
       EmployeeID,
@@ -81,8 +81,8 @@ const DeptRegister = () => {
     //     Status,
     //   })
     // );
-    const res = await fetch(postdepturl, {
-      method: "POST",
+    const resd = await fetch(putdepturl, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -96,14 +96,14 @@ const DeptRegister = () => {
       }),
     });
 
-    const data = await res.json();
-    console.log(data);
+    const Deptdata = await resd.json();
+    console.log(Deptdata);
 
-    if (res.status === 404 || !data) {
+    if (resd.status === 404 || !Deptdata) {
       alert("error");
       console.log("error");
     } else {
-      alert("Data Added Successfully");
+      alert("Data Updated Successfully");
     }
   };
 
@@ -147,18 +147,13 @@ const DeptRegister = () => {
     // ---------------------------------------NAV BAR---------------------------------------------- //
 
     <>
-      {/* <Navbar />
-       */}
       <Navbar2 />
       {/* ---------------------------------------Form---------------------------------------------- */}
       <div className="container">
         <div className="Auth-form-container1">
           <form className="Auth-form1">
             <div className="Auth-form-content1">
-              <h1 className="title1">
-                New Department User &nbsp;&nbsp;
-                <i class="fa-solid fa-building-user"></i>
-              </h1>
+              <h1 className="title1"> Update Dept Details</h1>
               <br></br>
 
               <div className="row">
@@ -175,7 +170,7 @@ const DeptRegister = () => {
                     name="EmployeeID"
                   /> */}
                   <select
-                    className="empSelect1"
+                    className="form-control"
                     value={inpval.EmployeeID}
                     onChange={setdata}
                     name="EmployeeID"
@@ -449,7 +444,7 @@ const DeptRegister = () => {
                   <br />
                   <button
                     type="submit"
-                    onClick={addinpdeptdata}
+                    onClick={Updatedeptdata}
                     className="btn btn-primary"
                   >
                     Submit
@@ -467,4 +462,4 @@ const DeptRegister = () => {
   );
 };
 
-export default DeptRegister;
+export default DeptEdit;

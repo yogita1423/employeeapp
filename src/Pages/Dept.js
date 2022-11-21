@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Component/Navbar";
+import Footer from "../Component/Footer";
 import { getdepturl } from "./Config";
 import { CSVLink } from "react-csv";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Navbar2 from "../Component/Navbar2";
 
 const Dept = () => {
   const [getuserdata, setUserdata] = useState([]);
@@ -51,20 +54,21 @@ const Dept = () => {
   //  };
 
   return (
-    <header>
-      <Navbar />
+    <>
+      <Navbar2 />
       <section>
         <div className="top">
           <h1>DEPARTMENT DETAILS</h1>
         </div>
         <div className="add-btn">
           <Link to="/DeptRegister" class="btn btn-primary">
-            ADD DATA
+            ADD DATA &nbsp;
+            <i class="fa-solid fa-plus"></i>
           </Link>
         </div>
         <div className="download-btn">
           <CSVLink data={getuserdata} className="btn btn-success mb-3">
-            DOWNLOAD IN EXCEL
+            DOWNLOAD IN EXCEL &nbsp; <i class="fa-solid fa-download"></i>
           </CSVLink>
         </div>
       </section>
@@ -107,11 +111,27 @@ const Dept = () => {
                       <td>{element.UserSkills}</td>
 
                       <td className="d-flex justify-content-between ">
-                        <button className="btn btn-success">Read</button>
+                        <Link to="/view:id">
+                          <button className="btn btn-success">
+                            <i class="fa-regular fa-eye"></i>
+                            <br />
+                            View
+                          </button>
+                        </Link>
 
-                        <button className="btn btn-primary">Update</button>
-
-                        <button className="btn btn-danger">Delete</button>
+                        <Link to="/DeptEdit">
+                          <button className="btn btn-primary" id="updatebtn">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <br />
+                            Update
+                          </button>
+                        </Link>
+                        <button className="btn btn-danger">
+                          {" "}
+                          <i class="fa-solid fa-trash"></i>
+                          <br />
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   </>
@@ -121,7 +141,10 @@ const Dept = () => {
           </table>
         </div>
       </div>
-    </header>
+      <br />
+
+      <Footer />
+    </>
   );
 };
 

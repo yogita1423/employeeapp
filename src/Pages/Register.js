@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { posturl } from "./Config";
 import "../App.css";
 import Navbar from "../Component/Navbar";
+import Footer from "../Component/Footer";
+import Navbar2 from "../Component/Navbar2";
 
 const Register = () => {
   const [inpval, setINP] = useState({
@@ -93,16 +95,19 @@ const Register = () => {
   return (
     // ---------------------------------------NAV BAR---------------------------------------------- //
 
-    <header>
-      <Navbar />
+    <>
+      <Navbar2 />
       {/* ---------------------------------------Form---------------------------------------------- */}
       <div className="container">
         <div className="Auth-form-container1">
           <form className="Auth-form1">
             <div className="Auth-form-content1">
-              <h3 className="title1">New User</h3>
-              <br></br>
+              <h1 className="title1">
+                New Employee User &nbsp;&nbsp;
+                <i class="fa-sharp fa-solid fa-person-circle-plus"></i>{" "}
+              </h1>
 
+              <br></br>
               <div className="row">
                 <div className="col-lg-6">
                   <label for="ExampleInputID" class=" form=label">
@@ -301,7 +306,10 @@ const Register = () => {
           </form>
         </div>
       </div>
-    </header>
+      <br />
+
+      <Footer />
+    </>
   );
 };
 

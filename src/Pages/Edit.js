@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 //import { NavLink, useParams } from "react-router-dom";
 import Navbar from "../Component/Navbar";
+import Footer from "../Component/Footer";
 import { puturl, geturl } from "./Config";
+import Navbar2 from "../Component/Navbar2";
 
 const Edit = () => {
   const [inpval, setINP] = useState({
@@ -123,14 +125,15 @@ const Edit = () => {
   return (
     // ---------------------------------------NAV BAR---------------------------------------------- //
 
-    <header>
-      <Navbar />
+    <>
+      <Navbar2 />
       {/* ---------------------------------------Form---------------------------------------------- */}
       <div className="container">
         <div className="Auth-form-container1">
           <form className="Auth-form1">
             <div className="Auth-form-content1">
-              <h3 className="Auth-form-title1">UPDATE USER</h3>
+              <h1 className="title1"> Update Emp Details</h1>
+              <br />
 
               {/* <div className='row'>
               <div className='mb-3 col-lg-3 col-md-3 col-12'>
@@ -299,7 +302,10 @@ const Edit = () => {
           </form>
         </div>
       </div>
-    </header>
+      <br />
+
+      <Footer />
+    </>
   );
 };
 

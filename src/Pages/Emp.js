@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
 import { geturl } from "./Config";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CSVLink } from "react-csv";
+import Navbar2 from "../Component/Navbar2";
 
 //import { deleteurl } from "./Config";
 //import { puturl } from "./Config";
@@ -36,12 +38,15 @@ const Emp = () => {
   }, []);
 
   const deleteuser = async (EmployeeID) => {
-    const res2 = await fetch(`http://localhost:5001/employee/${EmployeeID}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res2 = await fetch(
+      `https://7bctswkz46.execute-api.us-east-1.amazonaws.com/employee/${EmployeeID}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data2 = await res2.json();
     console.log(data2);
@@ -55,20 +60,21 @@ const Emp = () => {
   };
 
   return (
-    <header>
-      <Navbar />
+    <>
+      <Navbar2 />
       <section>
         <div className="top">
           <h1>EMPLOYEES DETAILS</h1>
         </div>
         <div className="add-btn">
           <Link to="/register" class="btn btn-primary">
-            ADD DATA
+            ADD DATA &nbsp;
+            <i class="fa-solid fa-plus"></i>
           </Link>
         </div>
         <div className="download-btn">
           <CSVLink data={getuserdata} className="btn btn-success mb-3">
-            DOWNLOAD IN EXCEL
+            DOWNLOAD IN EXCEL&nbsp; <i class="fa-solid fa-download"></i>
           </CSVLink>
         </div>
       </section>
@@ -106,15 +112,22 @@ const Emp = () => {
                       <td>{element.EndDate}</td>
 
                       <td className="d-flex justify-content-between ">
-                        <button className="btn btn-success">Read</button>
-                        <Link to={`/Edit/`} className="btn">
-                          <button className="btn btn-primary">Update</button>
+                        <Link to="/view:id">
+                          <button className="btn btn-success">
+                            <i class="fa-regular fa-eye"></i>View
+                          </button>
+                        </Link>
+                        <Link to="/Edit">
+                          <button className="btn btn-primary" id="updatebtn">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Update
+                          </button>
                         </Link>
                         <button
                           className="btn btn-danger"
                           onClick={() => deleteuser(element.EmployeeID)}
                         >
-                          Delete
+                          <i class="fa-solid fa-trash"></i>Delete
                         </button>
                       </td>
                     </tr>
@@ -125,7 +138,10 @@ const Emp = () => {
           </table>
         </div>
       </div>
-    </header>
+      <br />
+
+      <Footer />
+    </>
   );
 };
 
