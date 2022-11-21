@@ -463,10 +463,8 @@ const DeptRegister = () => {
                     id='ExampleInputPassword1'
                   />
                 </div> */}
+                <br />
                 <div className="col-lg-6" id="sub2">
-                  <br />
-                  <br />
-                  <br />
                   <button
                     type="submit"
                     onClick={addinpdeptdata}

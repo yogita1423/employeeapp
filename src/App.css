@@ -63,12 +63,13 @@ color: #000080;}
   padding-top: 50px;
   
 }
-/* #sub2 {
-  padding-top: 50px;
+#sub2 {
+  padding-top: 45px;
+  
   position: relative;
-  right: 285px;
-} */
-
+ left: 10px;
+}
+ 
 #sub2 button{
   background-color: #000080;
   border-color: #000080;
