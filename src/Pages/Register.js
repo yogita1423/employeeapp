@@ -196,7 +196,7 @@ const Register = () => {
                     EmployeeAge
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     id="ExampleInputAge"
                     value={inpval.EmployeeAge}

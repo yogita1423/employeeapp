@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
-import Navbar from "../Component/Navbar";
+//import Navbar from "../Component/Navbar";
 import { geturl } from "./Config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CSVLink } from "react-csv";
